@@ -15,7 +15,7 @@ Native ABI target: `armeabi-v7a` only.
 2. Open Auto Paste.
 3. Enter the text and save.
 4. Open Android Accessibility settings and enable Auto Paste.
-5. Return to the app and tap `SIAPKAN 1x PASTE`.
+5. Return to the app and tap `PREPARE 1x PASTE`.
 6. Switch to the destination app and focus an editable text field.
 7. Check the inserted text yourself before manually sending.
 

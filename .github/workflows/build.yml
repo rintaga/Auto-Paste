@@ -1,0 +1,31 @@
+name: Build Auto Paste ARM32
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+      - name: Build ARM32 APK
+        run: gradle assembleDebug
+      - name: Verify APK ABI
+        run: |
+          APK=app/build/outputs/apk/debug/app-debug.apk
+          unzip -l "$APK" | grep -E 'lib/armeabi-v7a/' || true
+          if unzip -l "$APK" | grep -q 'lib/arm64-v8a/'; then
+            echo "Unexpected ARM64 library found"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Auto-Paste-ARM32
+          path: app/build/outputs/apk/debug/app-debug.apk

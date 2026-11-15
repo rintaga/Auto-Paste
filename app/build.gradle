@@ -1,0 +1,24 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.autopaste.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.autopaste.app'
+        minSdk 23
+        targetSdk 28
+        versionCode 1
+        versionName '1.0'
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

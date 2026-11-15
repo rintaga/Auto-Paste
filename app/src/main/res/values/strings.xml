@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Auto Paste</string>
+    <string name="accessibility_description">Inserts user-prepared text into the selected text field, once after activation.</string>
+</resources>
